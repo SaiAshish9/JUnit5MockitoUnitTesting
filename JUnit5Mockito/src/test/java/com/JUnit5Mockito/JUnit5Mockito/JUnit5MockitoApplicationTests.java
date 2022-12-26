@@ -12,9 +12,5 @@ class JUnit5MockitoApplicationTests {
 	void contextLoads() {
 	}
 
-	@Test
-	public void demoTestMethod(){
-		assertTrue(true);
-	}
 
 }
