@@ -31,13 +31,13 @@ public class BookController {
     }
 
     @PutMapping
-    public Book updateBookRecord(@RequestBody @Validated Book bookRecord) throws ClassNotFoundException {
+    public Book updateBookRecord(@RequestBody @Validated Book bookRecord) throws Exception {
         if (bookRecord == null || bookRecord.getBookId() == null) {
-            throw new ClassNotFoundException("Must Not Be Null");
+            throw new Exception("Must Not Be Null");
         }
         Optional<Book> optionalBook = bookRepository.findById(bookRecord.getBookId());
         if (!optionalBook.isPresent())
-            throw new ClassNotFoundException("Book with ID: " + bookRecord.getBookId() + " not found ");
+            throw new Exception("Book with ID: " + bookRecord.getBookId() + " not found ");
         Book existingBookRecord = optionalBook.get();
         existingBookRecord.setName(bookRecord.getName());
         existingBookRecord.setSummary(bookRecord.getSummary());
