@@ -16,4 +16,12 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long bookId;
 
+    @NonNull
+    private String name;
+
+    @NonNull
+    private String summary;
+
+    private int rating;
+
 }
